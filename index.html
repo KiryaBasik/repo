@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Anna — Diagnostyka energetyczna i indywidualne towarzyszenie</title>
+    <meta
+      name="description"
+      content="Uważna diagnostyka energetyczna i indywidualne towarzyszenie. Pomagam odzyskać równowagę, jasność i wewnętrzną oporę."
+    />
+    <meta property="og:title" content="Anna — Diagnostyka energetyczna" />
+    <meta
+      property="og:description"
+      content="Uważna diagnostyka stanu i indywidualne towarzyszenie. Zdalnie. Spokojnie. Konkretnie."
+    />
+    <meta property="og:image" content="assets/og/og.jpg" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#start">Przejdź do treści</a>
+
+    <header class="topbar">
+      <div class="container topbar__in">
+        <a class="brand" href="#start" aria-label="Anna — start">Anna</a>
+        <nav class="nav" aria-label="Nawigacja">
+          <a class="nav__link" href="#start">Start</a>
+          <a class="nav__link" href="#o-mnie">O mnie</a>
+          <a class="nav__link" href="#jak-pracuje">Jak pracuję</a>
+          <a class="nav__link" href="#galeria">Galeria</a>
+          <a class="nav__link" href="#kontakt">Kontakt</a>
+        </nav>
+        <a class="btn btn--small" href="#kontakt">Napisz do mnie</a>
+      </div>
+    </header>
+
+    <main id="start">
+      <section class="section hero" aria-label="Sekcja start">
+        <div class="container grid hero__grid">
+          <div class="stack hero__text">
+            <div class="badge">Diagnostyka • Towarzyszenie • Zdalnie</div>
+            <h1 class="h1">Anna</h1>
+            <p class="lead">
+              Diagnostyka energetyczna i indywidualne towarzyszenie. Pomagam
+              zobaczyć prawdziwe przyczyny trudnych stanów i łagodnie przywrócić
+              życie do równowagi oraz jasności.
+            </p>
+            <div class="row">
+              <a class="btn" href="#kontakt">Napisz do mnie</a>
+              <a class="link" href="#o-mnie">Dowiedz się więcej</a>
+            </div>
+            <div class="meta">
+              <div class="meta__item">
+                <div class="meta__k">Ton</div>
+                <div class="meta__v">spokojny, uważny, konkretny</div>
+              </div>
+              <div class="meta__item">
+                <div class="meta__k">Forma</div>
+                <div class="meta__v">online • indywidualnie</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="media hero__media">
+            <img
+              src="assets/images/main.jpg"
+              alt="Anna — portret"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="o-mnie"
+        class="section about"
+        aria-label="O mnie i doświadczenie"
+      >
+        <div class="container grid about__grid">
+          <div class="media about__media">
+            <img
+              src="assets/images/12321.jpg"
+              alt="Anna — zdjęcie"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="stack about__text">
+            <h2 class="h2">Co robię i doświadczenie</h2>
+            <p class="p">Pracuję z osobami, które czują, że:</p>
+            <ul class="list">
+              <li>utknęły w powtarzających się sytuacjach</li>
+              <li>straciły energię, jasność lub wewnętrzne oparcie</li>
+              <li>nie rozumieją, dlaczego wysiłek nie przynosi efektu</li>
+            </ul>
+            <p class="p">
+              Moja praca to uważna diagnostyka stanu i indywidualne
+              towarzyszenie, oparte na 12 latach praktyki i głębokiej
+              wrażliwości na procesy człowieka.
+            </p>
+            <p class="p">
+              W tym czasie przeprowadziłam ponad 8 000 sesji indywidualnych,
+              pomagając spojrzeć na sytuację z nowej perspektywy, odzyskać
+              poczucie stabilności, spokoju i pewności kolejnych kroków.
+            </p>
+            <p class="p p--strong">
+              Nie obiecuję cudów — pomagam zobaczyć to, co naprawdę ważne.
+            </p>
+            <div class="row">
+              <a class="btn" href="#kontakt">Napisz do mnie</a>
+              <span class="hint">Odpowiadam spokojnie i rzeczowo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="zdjecia" class="section photos" aria-label="Zdjęcia">
+        <div class="container stack">
+          <div class="photos__head">
+            <div class="stack">
+              <h2 class="h2">Zdjęcia</h2>
+              <p class="p">Kilka ujęć — spokojnie, elegancko, bez nadmiaru.</p>
+            </div>
+          </div>
+
+          <div
+            class="photos__grid"
+            id="photos-grid"
+            aria-label="Galeria zdjęć"
+          ></div>
+        </div>
+      </section>
+
+      <!-- отдельный оверлей именно для фото (не мешает отзывам) -->
+      <div class="photo-overlay" id="photo-overlay" aria-hidden="true">
+        <button
+          class="overlay-btn overlay-close"
+          id="photo-close"
+          type="button"
+          aria-label="Zamknij"
+        >
+          <span aria-hidden="true">✕</span>
+        </button>
+
+        <button
+          class="overlay-btn overlay-prev"
+          id="photo-prev"
+          type="button"
+          aria-label="Poprzednie"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+
+        <div class="photo-overlay-content" role="dialog" aria-modal="true">
+          <img src="" alt="Zdjęcie" id="photo-image" />
+        </div>
+
+        <button
+          class="overlay-btn overlay-next"
+          id="photo-next"
+          type="button"
+          aria-label="Następne"
+        >
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+
+      <section id="jak-pracuje" class="section work" aria-label="Jak pracuję">
+        <div class="container stack">
+          <div class="stack">
+            <h2 class="h2">Jak pracuję</h2>
+            <p class="p">
+              Wszystko odbywa się zdalnie. Po diagnostyce otrzymujesz jasne
+              zrozumienie swojej sytuacji oraz rekomendacje dopasowane do
+              Ciebie.
+            </p>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <div class="card__t">Diagnostyka</div>
+              <div class="card__d">energetyczna aktualnego stanu</div>
+            </div>
+            <div class="card">
+              <div class="card__t">Praca indywidualna</div>
+              <div class="card__d">z wewnętrznymi blokadami</div>
+            </div>
+            <div class="card">
+              <div class="card__t">Praktyki z woskiem</div>
+              <div class="card__d">łagodne porządkowanie napięć</div>
+            </div>
+            <div class="card">
+              <div class="card__t">Towarzyszenie</div>
+              <div class="card__d">w okresie zmian</div>
+            </div>
+            <div class="card">
+              <div class="card__t">Rekomendacje</div>
+              <div class="card__d">kolejnych kroków</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <a class="btn" href="#kontakt">Napisz do mnie</a>
+            <a class="link" href="#galeria">Zobacz galerię</a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="galeria"
+        class="section gallery"
+        aria-label="Galeria i opinie"
+      >
+        <div class="container stack">
+          <div class="gallery__head">
+            <div class="stack">
+              <h2 class="h2">Galeria / Opinie</h2>
+              <p class="p"></p>
+            </div>
+            <div class="gallery__controls">
+              <button
+                class="iconbtn hidden"
+                type="button"
+                id="slider-prev"
+                aria-label="Poprzednie"
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+              <button
+                class="iconbtn"
+                type="button"
+                id="slider-next"
+                aria-label="Następne"
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+          </div>
+          <div class="slider-wrapper">
+            <div
+              class="slider-container"
+              id="review-slider"
+              aria-label="Kарусель zdjęć"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="review-overlay" id="review-overlay" aria-hidden="true">
+        <button
+          class="overlay-btn overlay-close"
+          id="overlay-close"
+          type="button"
+          aria-label="Zamknij"
+        >
+          <span aria-hidden="true">✕</span>
+        </button>
+        <button
+          class="overlay-btn overlay-prev"
+          id="overlay-prev"
+          type="button"
+          aria-label="Poprzednie"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="review-overlay-content" role="dialog" aria-modal="true">
+          <img src="" alt="Opinie" id="overlay-image" />
+        </div>
+        <button
+          class="overlay-btn overlay-next"
+          id="overlay-next"
+          type="button"
+          aria-label="Następne"
+        >
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+
+      <section id="kontakt" class="section contact" aria-label="Kontakt">
+        <div class="container contact__box">
+          <div class="stack">
+            <h2 class="h2">Kontakt</h2>
+            <p class="p">
+              Jeśli czujesz, że to dobry moment, aby zrozumieć siebie i swoją
+              sytuację — napisz do mnie. Zobaczę Twój temat i podpowiem, jak
+              najlepiej pójść dalej.
+            </p>
+            <div class="row">
+              <a class="btn" href="mailto:anna@example.com">Napisz do mnie</a>
+              <a
+                class="btn btn--ghost"
+                href="https://t.me/username"
+                target="_blank"
+                rel="noreferrer"
+                >Telegram</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://wa.me/000000000000"
+                target="_blank"
+                rel="noreferrer"
+                >WhatsApp</a
+              >
+            </div>
+            <div class="contacts">
+              <div class="contacts__item">
+                <div class="contacts__k">Email</div>
+                <div class="contacts__v">
+                  <a class="link" href="mailto:anna@example.com"
+                    >anna@example.com</a
+                  >
+                </div>
+              </div>
+              <div class="contacts__item">
+                <div class="contacts__k">Czas</div>
+                <div class="contacts__v">Pon–Pt • 10:00–18:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" aria-label="Stopka">
+        <div class="container footer__in">
+          <div class="footer__left">
+            <div class="footer__brand">Anna</div>
+            <div class="footer__sub">
+              © <span id="y"></span> • Diagnostyka energetyczna
+            </div>
+          </div>
+          <div class="footer__right">
+            <a
+              class="link link--muted"
+              href="#"
+              aria-label="Polityka prywatności"
+              >Polityka prywatności</a
+            >
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
