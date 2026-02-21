@@ -154,20 +154,12 @@ loadReviews();
 // ===== Personal photos block (assets/images/44..53) =====
 // ===== Personal photos block (carousel) =====
 let photoImages = [
-  "assets/images/49.jpg",
-  "assets/images/50.jpg",
-  "assets/images/48.jpg",
-  "assets/images/51.jpg",
-  "assets/images/52.jpg",
-  "assets/images/53.jpg",
-  "assets/images/44.jpg",
-  "assets/images/45.jpg",
-  "assets/images/46.jpg",
-  "assets/images/47.jpg",
+  "assets/images/54.png",
+  "assets/images/55.png",
+  "assets/images/57.png",
+  "assets/images/58.png",
+  "assets/images/59.png",
 ];
-
-// убрать 3 последние
-photoImages = photoImages.slice(0, -3);
 
 const photosSlider = document.getElementById("photos-slider");
 const photosPrev = document.getElementById("photos-prev");
