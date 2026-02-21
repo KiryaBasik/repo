@@ -129,13 +129,37 @@
               <h2 class="h2">Zdjęcia</h2>
               <p class="p">Kilka ujęć — spokojnie, elegancko, bez nadmiaru.</p>
             </div>
+
+            <div
+              class="gallery__controls"
+              aria-label="Sterowanie karuzelą zdjęć"
+            >
+              <button
+                class="iconbtn hidden"
+                type="button"
+                id="photos-prev"
+                aria-label="Poprzednie"
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+              <button
+                class="iconbtn"
+                type="button"
+                id="photos-next"
+                aria-label="Następne"
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
           </div>
 
-          <div
-            class="photos__grid"
-            id="photos-grid"
-            aria-label="Galeria zdjęć"
-          ></div>
+          <div class="slider-wrapper">
+            <div
+              class="slider-container"
+              id="photos-slider"
+              aria-label="Karuzela zdjęć"
+            ></div>
+          </div>
         </div>
       </section>
 
@@ -327,6 +351,11 @@
             <div class="footer__brand">Anna</div>
             <div class="footer__sub">
               © <span id="y"></span> • Diagnostyka energetyczna
+            </div>
+            <div class="footer__note">
+              Informace na těchto stránkách mají informativní charakter a
+              nenahrazují lékařské, psychologické ani jiné odborné poradenství.
+              Výsledky jsou individuální.
             </div>
           </div>
           <div class="footer__right">

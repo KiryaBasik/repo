@@ -151,7 +151,8 @@ window.addEventListener("keydown", (e) => {
 
 loadReviews();
 // ===== Personal photos block (assets/images/44..53) =====
-const photoImages = [
+// ===== Personal photos block (carousel) =====
+let photoImages = [
   "assets/images/49.jpg",
   "assets/images/50.jpg",
   "assets/images/48.jpg",
@@ -164,7 +165,12 @@ const photoImages = [
   "assets/images/47.jpg",
 ];
 
-const photosGrid = document.getElementById("photos-grid");
+// убрать 3 последние
+photoImages = photoImages.slice(0, -3);
+
+const photosSlider = document.getElementById("photos-slider");
+const photosPrev = document.getElementById("photos-prev");
+const photosNext = document.getElementById("photos-next");
 
 const photoOverlay = document.getElementById("photo-overlay");
 const photoImageEl = document.getElementById("photo-image");
@@ -173,6 +179,34 @@ const photoPrev = document.getElementById("photo-prev");
 const photoNext = document.getElementById("photo-next");
 
 let currentPhotoIndex = 0;
+
+function getGapPx(el) {
+  const gap = parseFloat(getComputedStyle(el).gap);
+  return Number.isFinite(gap) ? gap : 0;
+}
+
+function updatePhotosArrows() {
+  if (!photosSlider) return;
+
+  const left = photosSlider.scrollLeft;
+  const max = photosSlider.scrollWidth - photosSlider.clientWidth;
+
+  if (left <= 4) photosPrev?.classList.add("hidden");
+  else photosPrev?.classList.remove("hidden");
+
+  if (left >= max - 4) photosNext?.classList.add("hidden");
+  else photosNext?.classList.remove("hidden");
+}
+
+function scrollByOnePhotoCard(direction) {
+  const firstCard = photosSlider?.firstElementChild;
+  if (!firstCard) return;
+
+  const gap = getGapPx(photosSlider);
+  const step = firstCard.offsetWidth + gap;
+
+  photosSlider.scrollBy({ left: direction * step, behavior: "smooth" });
+}
 
 function openPhoto(index) {
   currentPhotoIndex = index;
@@ -194,40 +228,43 @@ function navPhoto(dir) {
   photoImageEl.src = photoImages[currentPhotoIndex];
 }
 
-function buildPhotoTile(src, index) {
-  const tile = document.createElement("div");
-
-  // “премиальная” раскладка: первые два — большие, остальные — мелкие
-  const cls =
-    index === 0
-      ? "photo-tile is-wide"
-      : index === 1
-        ? "photo-tile is-tall"
-        : "photo-tile is-small";
-
-  tile.className = cls;
-  tile.innerHTML = `
+function buildPhotoCard(src, index) {
+  const card = document.createElement("div");
+  card.className = "photo-card";
+  card.innerHTML = `
     <img src="${src}" alt="Zdjęcie ${index + 1}" loading="lazy" decoding="async">
-    <div class="photo-badge" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-           xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 3H21M21 3V9M21 3L14 10M9 21H3M3 21V15M3 21L10 14"
-          stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <div class="review-hover-overlay" aria-hidden="true">
+      <div class="review-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 3H21M21 3V9M21 3L14 10M9 21H3M3 21V15M3 21L10 14"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </div>
   `;
-  tile.addEventListener("click", () => openPhoto(index));
-  return tile;
+  card.addEventListener("click", () => openPhoto(index));
+  return card;
 }
 
 function mountPhotos() {
-  if (!photosGrid) return;
-  photosGrid.innerHTML = "";
+  if (!photosSlider) return;
+
+  photosSlider.innerHTML = "";
   photoImages.forEach((src, i) =>
-    photosGrid.appendChild(buildPhotoTile(src, i)),
+    photosSlider.appendChild(buildPhotoCard(src, i)),
   );
+
+  requestAnimationFrame(updatePhotosArrows);
+  setTimeout(updatePhotosArrows, 60);
 }
+
+photosSlider?.addEventListener("scroll", updatePhotosArrows, { passive: true });
+window.addEventListener("resize", updatePhotosArrows);
+
+photosPrev?.addEventListener("click", () => scrollByOnePhotoCard(-1));
+photosNext?.addEventListener("click", () => scrollByOnePhotoCard(1));
 
 photoClose?.addEventListener("click", closePhoto);
 photoPrev?.addEventListener("click", () => navPhoto(-1));

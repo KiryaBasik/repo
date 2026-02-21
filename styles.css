@@ -966,3 +966,43 @@ img {
     grid-column: span 3;
   }
 }
+.footer__note {
+  margin-top: 8px;
+  max-width: 72ch;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0.92;
+}
+.photo-card {
+  position: relative;
+  flex: 0 0 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 242, 0.75);
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    border-color 0.14s ease;
+}
+.photo-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(43, 36, 31, 0.18);
+  box-shadow: 0 14px 34px rgba(43, 36, 31, 0.1);
+}
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+  display: block;
+}
+
+@media (max-width: 540px) {
+  .photo-card {
+    flex-basis: 78%;
+  }
+}
