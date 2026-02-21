@@ -175,10 +175,11 @@
         </button>
 
         <button
-          class="overlay-btn overlay-prev"
-          id="photo-prev"
+          class="iconbtn"
           type="button"
+          id="photos-prev"
           aria-label="Poprzednie"
+          disabled
         >
           <span aria-hidden="true">‹</span>
         </button>
@@ -188,9 +189,9 @@
         </div>
 
         <button
-          class="overlay-btn overlay-next"
-          id="photo-next"
+          class="iconbtn"
           type="button"
+          id="photos-next"
           aria-label="Następne"
         >
           <span aria-hidden="true">›</span>
@@ -249,12 +250,17 @@
               <h2 class="h2">Galeria / Opinie</h2>
               <p class="p"></p>
             </div>
-            <div class="gallery__controls">
+
+            <div
+              class="gallery__controls"
+              aria-label="Sterowanie karuzelą opinii"
+            >
               <button
-                class="iconbtn hidden"
+                class="iconbtn"
                 type="button"
                 id="slider-prev"
                 aria-label="Poprzednie"
+                disabled
               >
                 <span aria-hidden="true">‹</span>
               </button>
@@ -268,11 +274,12 @@
               </button>
             </div>
           </div>
+
           <div class="slider-wrapper">
             <div
               class="slider-container"
               id="review-slider"
-              aria-label="Kарусель zdjęć"
+              aria-label="Karuzela opinii"
             ></div>
           </div>
         </div>
@@ -287,6 +294,7 @@
         >
           <span aria-hidden="true">✕</span>
         </button>
+
         <button
           class="overlay-btn overlay-prev"
           id="overlay-prev"
@@ -295,9 +303,11 @@
         >
           <span aria-hidden="true">‹</span>
         </button>
+
         <div class="review-overlay-content" role="dialog" aria-modal="true">
           <img src="" alt="Opinie" id="overlay-image" />
         </div>
+
         <button
           class="overlay-btn overlay-next"
           id="overlay-next"
@@ -317,6 +327,7 @@
               sytuację — napisz do mnie. Zobaczę Twój temat i podpowiem, jak
               najlepiej pójść dalej.
             </p>
+
             <div class="row">
               <a class="btn" href="mailto:anna@example.com">Napisz do mnie</a>
               <a
@@ -327,6 +338,7 @@
                 >WhatsApp</a
               >
             </div>
+
             <div class="contacts">
               <div class="contacts__item">
                 <div class="contacts__k">Email</div>

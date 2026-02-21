@@ -54,14 +54,15 @@ function getGapPx(el) {
 
 function updateSliderArrows() {
   if (!sliderContainer) return;
+
   const left = sliderContainer.scrollLeft;
   const max = sliderContainer.scrollWidth - sliderContainer.clientWidth;
 
-  if (left <= 4) sliderPrev.classList.add("hidden");
-  else sliderPrev.classList.remove("hidden");
+  const atStart = left <= 4;
+  const atEnd = left >= max - 4;
 
-  if (left >= max - 4) sliderNext.classList.add("hidden");
-  else sliderNext.classList.remove("hidden");
+  if (sliderPrev) sliderPrev.disabled = atStart;
+  if (sliderNext) sliderNext.disabled = atEnd;
 }
 
 function scrollByOneCard(direction) {
@@ -191,13 +192,12 @@ function updatePhotosArrows() {
   const left = photosSlider.scrollLeft;
   const max = photosSlider.scrollWidth - photosSlider.clientWidth;
 
-  if (left <= 4) photosPrev?.classList.add("hidden");
-  else photosPrev?.classList.remove("hidden");
+  const atStart = left <= 4;
+  const atEnd = left >= max - 4;
 
-  if (left >= max - 4) photosNext?.classList.add("hidden");
-  else photosNext?.classList.remove("hidden");
+  if (photosPrev) photosPrev.disabled = atStart;
+  if (photosNext) photosNext.disabled = atEnd;
 }
-
 function scrollByOnePhotoCard(direction) {
   const firstCard = photosSlider?.firstElementChild;
   if (!firstCard) return;

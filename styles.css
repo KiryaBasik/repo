@@ -595,11 +595,6 @@ img {
   backdrop-filter: blur(8px);
 }
 
-/* arrows already styled as .iconbtn in my design */
-.hidden {
-  display: none;
-}
-
 /* ===== Overlay ===== */
 .review-overlay {
   position: fixed;
@@ -1005,4 +1000,9 @@ img {
   .photo-card {
     flex-basis: 78%;
   }
+}
+.iconbtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
 }
